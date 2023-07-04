@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+/* ! Phone First */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  --iconColor: #c2cfd7;
+  --mainColor: #fc758c;
+  --headingColor: #838383;
+  --sectionPadding: 2rem;
+  --iconSize: 1.25rem;
+  --gapLinks: 1rem
+}
+/* * Flex Framework */
+.flex {
+  display: flex;
+  flex-wrap: wrap
+}
+.justify-center {
+  justify-content: center
+}
+.justify-space-between {
+  justify-content: space-between
+}
+.align-center {
+  align-items: center
+}
+
+/* * Basic Setup */
+ul {
+  list-style: none;
+  padding: 0
+}
+a {
+  text-decoration: none
+}
+i::before {
+  font-weight: 600;
+  font-size: var(--iconSize, 1.25rem);
+  color: var(--mainColor, #fc758c);
+  cursor: pointer
+}
+button {
+  padding: .5rem 1rem;
+  text-transform: uppercase;
+  color: var(--mainColor, #fc758c);
+  background-color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.active {
+  color: white;
+  background-color: var(--mainColor, #fc758c);
+}
+
+
+.container {
+  width: 95%
+}
+@media (min-width: 768px) {  
+  .container {
+    width: 90%
+  }
+}
+@media (min-width: 992px) { 
+  .container {
+    width: 85%
+  }
+}
+@media (min-width: 1200px) {  
+  .container {
+    width: 80%;
+    max-width: 900px
+  }
+}
+body {
+  width: 100%;
+  position: relative
+}
+
+/* Section Header Styling Start */
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+header .container .logo {
+  height: 75px
+}
+header .container .logo img {
+  height: 100%
+}
+header .container nav {
+  gap: 1rem
+}
+@media (min-width: 768px) {  
+  header .container nav > i:first-of-type {
+    display: none
+  }
+}
+
+
+nav ul {
+  display: none;
+  flex-direction: column;
+  justify-content: start;
+  text-transform: capitalize;
+  gap: var(--gapLinks, 1rem);
+  position: absolute;
+  left: 0;
+  top: 100%; 
+  background-color: rgba(250, 250, 250, 0.942);
+  width: 100%;
+  padding: var(--sectionPadding)
+}
+nav i:hover + ul {
+  display: flex
+}
+ul li a {
+  color: var(--headingColor, #838383);
+  padding: .5rem 1rem;
+  transition: .2s;
+  display: block;
+  width: fit-content
+}
+ul li a:hover {
+  background-color: var(--mainColor, #fc758c);
+  color: white;
+  margin-left: .5rem
+}
+@media (min-width: 768px) {  
+  ul.links {
+    position: static;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    gap: .25rem;
+    width: fit-content
+  }
+  ul.links li a:hover {
+    margin-left: 0
+  }
+}
+/* Section Header Styling End */
+
+/* Section Landing Styling Start */
+.landing {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--mainColor);
+  text-align: center;
+  color: white
+}
+.landing .container h1 {
+  width: 100%;
+  letter-spacing: .75rem;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem
+}
+.landing .container p {
+  margin-bottom: 2rem;
+  width: 100%
+}
+/* Section Landing Styling End */
+
+/* Section Gallery Styling Start */
+.gallery .container .icons {
+  gap: var(--gapLinks, 1rem);
+  margin: 4rem 0;
+  width: 100%
+}
+.gallery .container .links-gallery {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: .25rem;
+  width: fit-content;
+  text-transform: capitalize;
+  margin-bottom: 4rem
+}
+.links-gallery li a:hover {
+  margin-left: 0
+}
+.gallery .gallery-view {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .5rem
+}
+ 
+.gallery .gallery-view div {
+  display: inherit;
+  gap: inherit;
+  grid-template-columns: 1fr;
+  height: fit-content
+}
+.gallery .gallery-view img {
+  width: 100%;
+  display: block
+}
+
+@media (min-width: 768px) { 
+  .gallery .gallery-view { 
+  grid-template-columns: repeat(3, 1fr)
+  }
+}
+.gallery .container button {
+  margin-top: 2rem;
+  color: white;
+  background-color: var(--mainColor, #fc758c)
+}
+/* Section Gallery Styling End */
+
+/* Section Footer Styling Start */
+footer {
+  margin-top: 2rem;
+  background-color: var(--mainColor, #fc758c);
+  padding: 1rem 0;
+  color: var(--iconColor, #c2cfd7);
+  text-align: center
+}
+footer p {
+  width: 100%;
+  margin-bottom: .5rem;
+  color: white
+}
+footer .container .social-icons i::before {
+  color: white;
+  --iconSize: 1rem;
+  margin-left: 1rem
+}
+footer .container .social-icons i:first-child:before {
+  margin-left: 0
+}
+/* Section Footer Styling End */

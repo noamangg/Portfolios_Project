@@ -1,0 +1,326 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+:root {
+  --yellow-color: #ffc107;
+  --main-bg-color: #1e1e28;
+  --card-bg-color: #242430;
+  --p-color: #8c8c8e;
+  --progress-color: #191923;
+
+  --num: 85;
+}
+
+::selection {
+  background-color: #f8ba00;
+  color: white;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(140, 140, 142, 0.1);
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+body {
+  background-color: #191923;
+}
+body > div {
+  max-width: 1666px;
+}
+main {
+  flex: 1;
+}
+
+
+
+header {
+  display: none;
+}
+
+
+
+/* Section Aside Start */
+aside > div::-webkit-scrollbar-thumb {
+  background-color: rgb(140, 140, 142, 0.1);
+}
+
+aside > div::-webkit-scrollbar {
+  width: 4px;
+}
+
+aside {
+  min-width: 300px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  z-index: 9;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  aside {
+    display: none;
+  }
+  header {
+    display: block;
+    position: absolute;
+    width: 100%;
+    padding: 15px 20px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+  }
+  main {
+    padding-top: 55px;
+  }
+}
+
+
+/* header:has(i:hover) + aside {
+  display: block;
+} */
+
+
+
+aside > div {
+  width: 300px;
+  position: fixed;
+  max-height: 100vh;
+  overflow-y: auto;
+  top: 0;
+}
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  aside {
+    position: absolute;
+    z-index: 99;
+  }
+}
+
+aside .skills-prog .coding {
+  grid-template-columns: 1fr;
+}
+aside .skills-prog .coding > span::before {
+  content: attr(data-name);
+  position: absolute;
+  top: -1.5rem;
+  font-size: 14px;
+  left: 0;
+}
+aside .skills-prog .coding > span::after {
+  content: attr(data-width);
+  position: absolute;
+  top: -1.5rem;
+  font-size: 14px;
+  right: 0;
+  color: var(--p-color, #8c8c8e);
+  font-size: 13px;
+  font-weight: 400;
+}
+aside .knowledge > span::before {
+  content: "\f00c";
+  font-family: var(--fa-style-family-classic);
+  font-weight: 600;
+  position: absolute;
+  color: var(--yellow-color, #ffc107);
+  font-size: 1rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+aside .social .social-box a {
+  display: block;
+  transition: 0.3s;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--card-bg-color, #242430);
+  text-decoration: none;
+}
+aside .social .social-box a:hover {
+  background-color: var(--card-bg-color, #242430);
+  transform: translateY(-10px);
+  background-color: var(--card-bg-color);
+  border-color: rgb(255, 255, 255, 0.2);
+}
+
+aside .skills-circle .circle-warp {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 5px solid var(--progress-color, #191923);
+  stroke: var(--yellow-color, #ffc107);
+  stroke-width: 100px;
+}
+.skills .card {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.skills .card .parent {
+  height: 90px;
+  width: 90px;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.skills .card .parent::before,
+.skills .card .parent::after {
+  left: 50%;
+  position: absolute;
+  font-weight: 400;
+}
+.skills .card .parent::before {
+  content: attr(data-progress);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.skills .card .parent::after {
+  transform: translateX(-50%);
+  content: attr(data-language);
+  bottom: -1.2rem;
+}
+.skills .card .parent svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(270deg);
+}
+.skills .card .parent svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke-width: 3px;
+  stroke: var(--progress-color, #191923);
+}
+.skills .card .parent svg circle:last-child {
+  stroke: var(--yellow-color, #ffc107);
+  stroke-dasharray: 220;
+  stroke-dashoffset: calc(220 - (220 * var(--num)) / 100);
+}
+
+/* Section Aside End */
+
+/* Section Welcome Start */
+
+.welcome-section {
+  width: 100%;
+  min-height: 350px;
+  position: relative;
+  background: url(../imgs/kace-rodriguez-p3OzJuT_Dks-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.welcome-section::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.welcome-section::after {
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.main-subtitle {
+  margin: 1rem 0;
+}
+.main-subtitle > span:not(#intro-bar) {
+  color: var(--yellow-color, #ffc107);
+}
+.main-subtitle > span#intro-bar {
+  margin: 0 0.5rem;
+}
+main .projects .projects-container,
+main .recommendations .recommendations-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+@media (max-width: 400px) {
+  main .projects .projects-container,
+main .recommendations .recommendations-container {
+  grid-template-columns: 1fr;
+}
+}
+.projects-container .project p,
+.recommendations-container .recommendation p {
+  line-height: 1.6;
+}
+.project a {
+  width: fit-content;
+}
+.project:hover a {
+  animation: read-more-project .25s ease-in-out alternate infinite;
+}
+
+@keyframes read-more-project {
+  form {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(20px);
+
+  }
+}
+
+
+@media (max-width: 1024px) {
+}
+/* Section Welcome End */
+
+
+
+
+
+
+  .hover-c-yellow {
+    transition: .25s;
+
+  }
+  .hover-c-yellow:hover {
+    color:var(--yellow-color, #f8ba00);
+  }
+
+  @media (max-width: 300px) {
+    body > div.main-page > main {
+        padding: 10px; 
+        padding-bottom: 0;
+        padding-top: 55px;
+      }
+      footer {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        flex-flow: column wrap;
+        text-align: center;
+      }
+      footer * {
+        margin: 0;
+      }
+    }
+  
